@@ -31,6 +31,9 @@ class ShowUrls extends React.Component {
 				this.setState({ urls: res.data });
 			})
 			.catch(err => console.log(err));
+		this.setState({
+			urls:[],
+		})
 	}
 	readUrls() {
 		return this.state.urls.map(function(currentUrl, i) {
