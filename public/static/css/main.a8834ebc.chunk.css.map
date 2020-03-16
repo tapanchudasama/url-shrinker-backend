@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,WACI,eACJ,CACA,aACI,eACJ,CACA,OACI,UACJ","file":"main.a8834ebc.chunk.css","sourcesContent":[".jumbotron{\r\n    margin-top: 50px;\r\n}\r\n.btn-primary{\r\n    margin-top: 10px;\r\n}\r\n.table{\r\n    width: 100%;\r\n}\r\n"]}
