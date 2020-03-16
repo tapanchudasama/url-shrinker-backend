@@ -18,7 +18,6 @@ mongoose.connect(
 	'mongodb+srv://tapan9740:Tapan@9740@cluster0-uwc2y.mongodb.net/urlShortner?retryWrites=true&w=majority',
 	{
 		useNewUrlParser: true,
-		useUnifiedTopology: true
 	},
 	function(err, db) {
 		if (err) {
