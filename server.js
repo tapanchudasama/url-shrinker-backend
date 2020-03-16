@@ -10,13 +10,12 @@ require("dotenv/config");
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 mongoose.connect(
-	'mongodb+srv://tapan9740:Tapan@9740@cluster0-uwc2y.mongodb.net/urlShortner?retryWrites=true&w=majority',
+	process.env.DB_CONNECTION,
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true
@@ -45,6 +44,7 @@ app.get("/api", (req, res) => {
 	});
 	// res.render("index", { shortURLs: shortURLs });
 });
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.post("/api/shortURLs", function(req, res) {
 	ShortURLs.create({ full: req.body.fullURL })
@@ -61,4 +61,5 @@ app.get("/api/:shortUrl", async (req, res) => {
 	shortUrl.save();
 	res.redirect(shortUrl.full);
 });
+
 app.listen(process.env.PORT || 5000);
