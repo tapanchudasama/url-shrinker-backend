@@ -9,7 +9,7 @@ const RowUrl = props => (
 			<a href={props.url.full}>{props.url.full}</a>
 		</td>
 		<td>
-			<a href={props.url.full}>http://localhost:5000/api/{props.url.short}</a>
+			<a href={props.url.full}>https://sheltered-shore-02498.herokuapp.com/api/{props.url.short}</a>
 		</td>
 		<td>
 			{props.url.clicks}
@@ -24,9 +24,9 @@ class ShowUrls extends React.Component {
 		};
 	}
 	componentDidMount() {
-		console.log('http://localhost:5000/api');
+		console.log('https://sheltered-shore-02498.herokuapp.com/api');
 		axios
-			.get('http://localhost:5000/api')
+			.get('https://sheltered-shore-02498.herokuapp.com/api')
 			.then(res => {
 				this.setState({ urls: res.data });
 			})

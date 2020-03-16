@@ -17,7 +17,7 @@ class Url extends React.Component {
 	handleSubmit = event => {
 		event.preventDefault();
 		axios
-			.post('http://localhost:5000/shortURLs', { fullURL: this.state.fullURL })
+			.post('https://sheltered-shore-02498.herokuapp.com/api/shortURLs', { fullURL: this.state.fullURL })
 			.then(res => console.log(res.data))
 			.catch(err => {
 				console.log(err);
