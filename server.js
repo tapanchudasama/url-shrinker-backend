@@ -33,7 +33,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
 	ShortURLs.find(function(err,urls){
 		if(err){
 			console.log(err);
