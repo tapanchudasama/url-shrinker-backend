@@ -16,7 +16,7 @@ app.get('/', function(req, res) {
 });
 
 mongoose.connect(
-	process.env.DB_CONNECTION,
+	'mongodb+srv://tapan9740:Tapan@9740@cluster0-uwc2y.mongodb.net/urlShortner?retryWrites=true&w=majority',
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true
