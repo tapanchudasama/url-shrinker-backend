@@ -15,7 +15,8 @@ So after this whenever the user types in this *id* in the browser prefixed with 
  1. Clone the project.
  2.  run `npm install` inside root. This will install all dependencies for Backend.
  3. `cd client`. Run `yarn install`. This will install all dependencies for Frontend.
- 4. Open 2 windows. Run both backend and frontend simultaneously.
+ 4. Open two windows, one for root folder and other for client folder. Run `npm start` in both the windows. 
+ 
 
 ## Further tasks
 
