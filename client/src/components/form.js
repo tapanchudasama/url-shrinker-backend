@@ -17,7 +17,7 @@ class Url extends React.Component {
 	handleSubmit = event => {
 		event.preventDefault();
 		axios
-			.post(process.env.REACT_APP_BACKEND_URL +'/shortURLs', { fullURL: this.state.fullURL })
+			.post('http://localhost:5000/shortURLs', { fullURL: this.state.fullURL })
 			.then(res => console.log(res.data))
 			.catch(err => {
 				console.log(err);

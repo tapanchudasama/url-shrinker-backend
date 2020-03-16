@@ -9,7 +9,7 @@ const RowUrl = props => (
 			<a href={props.url.full}>{props.url.full}</a>
 		</td>
 		<td>
-			<a href={props.url.full}>{process.env.REACT_APP_BACKEND_URL+'/'}{props.url.short}</a>
+			<a href={props.url.full}>http://localhost:5000/api/{props.url.short}</a>
 		</td>
 		<td>
 			{props.url.clicks}
@@ -24,9 +24,9 @@ class ShowUrls extends React.Component {
 		};
 	}
 	componentDidMount() {
-		console.log(process.env.REACT_APP_BACKEND_URL);
+		console.log('http://localhost:5000/api');
 		axios
-			.get(process.env.REACT_APP_BACKEND_URL)
+			.get('http://localhost:5000/api')
 			.then(res => {
 				this.setState({ urls: res.data });
 			})
