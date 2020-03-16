@@ -6,10 +6,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 require("dotenv/config");
-const path=require('path');
-
 app.use(bodyParser.json());
 app.use(cors());
+
 
 mongoose.connect(
 	process.env.DB_CONNECTION,
@@ -30,30 +29,27 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
-// app.use(express.static(path.join(__dirname, 'public')));
-// app.get("/", (req, res) => {
-// 	res.sendFile(path.join(__dirname,'public', 'index.html'));
-// });
-
-app.get("/api/", (req, res) => {
-	ShortURLs.find(function(err, urls) {
-		if (err) {
+app.get("/", (req, res) => {
+	ShortURLs.find(function(err,urls){
+		if(err){
 			console.log(err);
-		} else {
+		}
+		else{
 			res.json(urls);
 		}
 	});
 	// res.render("index", { shortURLs: shortURLs });
 });
 
-app.post("/api/shortURLs", function(req, res) {
+app.post("/shortURLs", function(req, res) {
 	ShortURLs.create({ full: req.body.fullURL })
 		.then(() => console.log("Short URL created!"))
 		.catch(err => console.log(err));
 	res.redirect("/");
 });
 
-app.get("/api/:shortUrl", async (req, res) => {
+
+app.get("/:shortUrl", async (req, res) => {
 	const shortUrl = await ShortURLs.findOne({ short: req.params.shortUrl });
 	if (shortUrl == null) return res.sendStatus(404);
 	shortUrl.clicks++;
