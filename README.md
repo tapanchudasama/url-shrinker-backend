@@ -9,7 +9,7 @@ When a user types in URL on the home page that is served with React and submits,
 and stores it in the MongoDB database. 
 So after this whenever the user types in this *id* in the browser prefixed with the domain name of the site, the node logic efficiently routes it to the appropriate url.
 
-
+![image](Home.png)
 ## How to run locally?
 
  1. Clone the project.
