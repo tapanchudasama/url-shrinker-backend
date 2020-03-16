@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "client": "npm run start --prefix client"
   },
   "author": "",
   "license": "ISC",
