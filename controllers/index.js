@@ -1,9 +1,15 @@
 const urls = require('../models/urlSchema.js');
 
+const LIMIT = 10;
+
 const getAllUrls = async (req, res) => {
   try {
-    let data = await urls.find();
-    data = data.reverse();
+    const page = req.query.page;
+    let data = await urls
+      .find()
+      .limit(LIMIT)
+      .skip(page * LIMIT)
+      .sort({ createdDate: 'desc' });
     res.status(200).json({ data });
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -45,5 +51,5 @@ const getFullUrl = async (req, res) => {
 module.exports = {
   getAllUrls,
   createShortUrl,
-  getFullUrl,
+  getFullUrl
 };

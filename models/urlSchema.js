@@ -1,26 +1,25 @@
 const mongoose = require('mongoose');
-const shortID = require('shortid');
 
 const urlSchema = new mongoose.Schema({
   full: {
     type: String,
-    required: true,
+    required: true
   },
   short: {
     type: String,
     required: true,
-    default: () => shortID.generate(),
+    default: Date.now()
   },
   clicks: {
     type: Number,
     required: true,
-    default: 0,
+    default: 0
   },
   createdDate: {
     type: Date,
     required: true,
-    default: Date.now,
-  },
+    default: Date.now
+  }
 });
 
 module.exports = mongoose.model('ShortURL', urlSchema);
